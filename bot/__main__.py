@@ -140,7 +140,7 @@ async def search_images():
             for query in query_list:
                 query = query.strip().replace(" ", "+")
                 for page in range(1, total_pages + 1):
-                    url = f"https://www.wallpaperflare.com/search?wallpaper=anime%20Girl&width=1280&height=720&page={page}"
+                    url = f"{base_url}?wallpaper={query}&width=1280&height=720&page={page}"
                     r = rget(url)
                     soup = BeautifulSoup(r.text, "html.parser")
                     images = soup.select('img[data-src^="https://c4.wallpaperflare.com/wallpaper"]')
